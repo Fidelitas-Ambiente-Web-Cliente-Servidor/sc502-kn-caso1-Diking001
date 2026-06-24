@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurante Fidelitas</title>
+
+  <!-- Bootstrap CSS (solo grid permitido) -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="text-center p-4">
+    <h1 style="font-family: var(--fuente-titulo); color: var(--color-primario);">
+      Restaurante Fidelitas
+    </h1>
+  </header>
+
+  <!-- ======================================================
+       SECCIÓN 1 — MENÚ DEL RESTAURANTE
+  ======================================================= -->
+  <section class="container my-4">
+    <h2 class="text-center mb-3" style="font-family: var(--fuente-titulo);">
+      Menú del Restaurante
+    </h2>
+
+    <!-- Botones de filtro -->
+    <div class="text-center mb-3">
+      <button class="btn-filtro activo" data-cat="Todos">Todos</button>
+      <button class="btn-filtro" data-cat="Entrada">Entradas</button>
+      <button class="btn-filtro" data-cat="Plato Fuerte">Platos Fuertes</button>
+      <button class="btn-filtro" data-cat="Postre">Postres</button>
+    </div>
+
+    <!-- Contenedor donde se renderizan las cards -->
+    <div id="contenedor-menu"></div>
+  </section>
+
+  <!-- ======================================================
+       SECCIÓN 2 — FORMULARIO DE RESERVAS
+  ======================================================= -->
+  <section class="container my-5">
+    <h2 class="text-center mb-3" style="font-family: var(--fuente-titulo);">
+      Reservas
+    </h2>
+
+    <form id="form-reserva">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" />
+      <div class="error-campo" id="error-nombre"></div>
+
+      <label for="correo">Correo electrónico</label>
+      <input type="email" id="correo" />
+      <div class="error-campo" id="error-correo"></div>
+
+      <label for="fecha">Fecha de reserva</label>
+      <input type="date" id="fecha" />
+      <div class="error-campo" id="error-fecha"></div>
+
+      <label for="hora">Hora</label>
+      <select id="hora">
+        <option value="">Seleccione</option>
+        <option>12:00</option>
+        <option>13:00</option>
+        <option>18:00</option>
+        <option>19:00</option>
+        <option>20:00</option>
+      </select>
+      <div class="error-campo" id="error-hora"></div>
+
+      <label for="personas">Número de personas</label>
+      <input type="number" id="personas" min="1" max="20" />
+      <div class="error-campo" id="error-personas"></div>
+
+      <label for="comentarios">Comentarios (opcional)</label>
+      <textarea id="comentarios"></textarea>
+
+      <button type="submit" id="btn-enviar" disabled>Agregar Reserva</button>
+    </form>
+
+    <div id="mensaje-confirmacion" class="mt-3"></div>
+
+    <!-- Tabla de reservas -->
+    <h3 class="mt-4">Listado de Reservas</h3>
+    <table id="tabla-reservas" class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Personas</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <!-- Resumen dinámico -->
+    <div id="resumen" class="resumen-reservas"></div>
+  </section>
+
+  <!-- Script principal -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>
